@@ -28,7 +28,7 @@ string outFile;
 bool measure = false;
 
 void print_usage() {
-	std::cerr << "Usage: gol --load infile.gol --save outfile.gol --generations number [--measure]" << std::endl;
+	std::cerr << "Usage: gol --load inFile.gol --save outFile.gol --generations number [--measure]" << std::endl;
 }
 
 int main(int argc, char* argv[]) 
@@ -76,12 +76,7 @@ int main(int argc, char* argv[])
 	Timing* timer = Timing::getInstance();
 
 	timer->startSetup();
-	//inFile = argv[2];
-	//outFile = argv[4];
 	char** grid = createGridFromFile(inFile);
-	//char** grid = createGridFromFile("random250_in.gol");
-	//char** grid = createGridFromFile("txt.txt");
-	//
 
 	timer->stopSetup();
 
@@ -93,9 +88,7 @@ int main(int argc, char* argv[])
 	timer->stopComputation();
 
 	timer->startFinalization();
-	//printArray(grid, columnSize, rowSize);
 	writeGridToFile(grid, outFile);
-	//writeGridToFile(grid, "write.txt");
 	timer->stopFinalization();
 
 	// Print timing results
